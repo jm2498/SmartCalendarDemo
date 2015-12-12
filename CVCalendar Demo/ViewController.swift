@@ -23,6 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	@IBOutlet weak var endDate: UIDatePicker!
 	@IBOutlet weak var eventTabel: UITableView!
 	@IBOutlet weak var panelView: CVCalendarPanelView!
+	@IBOutlet var panelGesture: UIPanGestureRecognizer!
 	
     var shouldShowDaysOut = false
     var animationFinished = true
@@ -445,6 +446,24 @@ extension ViewController {
 		self.clearEventInfo()
 		self.setupViews()
     }
+	
+	@IBAction func displayGesture(sender: UIPanGestureRecognizer) {
+		let location: CGPoint = sender.locationInView(sender.view)
+		
+		let modelVW: CGRect = self.panelView.frame
+		
+		if((location.x > 0 && (location.x < modelVW.size.width) && (location.y < modelVW.size.height) && (location.y > 0))) {
+			
+			panelView.drawCircle(panelGesture.locationInView(panelGesture.view))
+
+			print("lcoaiton x : ", location.x)
+			print("location y : ", location.y)
+			print("panelView x : ", modelVW.origin.x)
+			print("panelView y : ", modelVW.origin.y)
+			print("panelView size heigh : ", modelVW.size.height)
+			print("panelView size width : ", modelVW.size.width)
+		}
+	}
 	
 	@IBAction func changeEndDate(sender: UIDatePicker) {
 		eventDays.removeAll()

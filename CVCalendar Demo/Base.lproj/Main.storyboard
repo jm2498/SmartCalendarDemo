@@ -23,6 +23,9 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="28" width="136" height="24"/>
+                                </variation>
                             </label>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPD-eB-kRA" customClass="CVCalendarMenuView" customModule="SmartCalendar" customModuleProvider="target">
                                 <rect key="frame" x="16" y="71" width="568" height="24"/>
@@ -220,6 +223,9 @@
                                                 <include reference="zb0-bi-FsV"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Fft-OV-t1x" appends="YES" id="BtJ-kj-qoK"/>
+                                        </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unN-tz-Lm1">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -273,14 +279,14 @@
                                         <exclude reference="fgp-je-VNq"/>
                                         <exclude reference="OKC-AI-LmA"/>
                                         <exclude reference="Qg4-Zi-Wj3"/>
+                                        <exclude reference="I9X-IX-gJ1"/>
+                                        <exclude reference="hyi-Ys-ZAJ"/>
                                         <exclude reference="BjH-0a-rOD"/>
                                         <exclude reference="VhV-4v-OBx"/>
                                         <exclude reference="X8p-bA-fHl"/>
                                         <exclude reference="W14-6W-TC4"/>
                                         <exclude reference="ZKH-ae-sT9"/>
                                         <exclude reference="mTI-6q-Pk8"/>
-                                        <exclude reference="I9X-IX-gJ1"/>
-                                        <exclude reference="hyi-Ys-ZAJ"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -294,14 +300,14 @@
                                         <include reference="fgp-je-VNq"/>
                                         <include reference="OKC-AI-LmA"/>
                                         <include reference="Qg4-Zi-Wj3"/>
+                                        <include reference="I9X-IX-gJ1"/>
+                                        <include reference="hyi-Ys-ZAJ"/>
                                         <include reference="BjH-0a-rOD"/>
                                         <include reference="VhV-4v-OBx"/>
                                         <include reference="X8p-bA-fHl"/>
                                         <include reference="W14-6W-TC4"/>
                                         <include reference="ZKH-ae-sT9"/>
                                         <include reference="mTI-6q-Pk8"/>
-                                        <include reference="I9X-IX-gJ1"/>
-                                        <include reference="hyi-Ys-ZAJ"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -420,12 +426,17 @@
                         <outlet property="eventView" destination="fzU-Ad-r5k" id="Mxr-Nr-1Dn"/>
                         <outlet property="menuView" destination="ZPD-eB-kRA" id="zjt-49-rDh"/>
                         <outlet property="monthLabel" destination="xf5-AN-qLk" id="fGT-h7-JSE"/>
+                        <outlet property="panelGesture" destination="Fft-OV-t1x" id="1XF-5F-spD"/>
                         <outlet property="panelView" destination="Ken-ha-i4J" id="hv6-Z1-G0c"/>
                         <outlet property="todayButton" destination="izK-WF-YDE" id="QIf-zh-jji"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="27I-pi-Zdz"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Fft-OV-t1x">
+                    <connections>
+                        <action selector="displayGesture:" destination="vXZ-lx-hvc" id="zVh-S6-iBU"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="18" y="293"/>
         </scene>
