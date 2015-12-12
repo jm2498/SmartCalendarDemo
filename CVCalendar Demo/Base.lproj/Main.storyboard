@@ -23,9 +23,6 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="133" y="28" width="136" height="24"/>
-                                </variation>
                             </label>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPD-eB-kRA" customClass="CVCalendarMenuView" customModule="SmartCalendar" customModuleProvider="target">
                                 <rect key="frame" x="16" y="71" width="568" height="24"/>
@@ -109,7 +106,7 @@
                                         <attributedString key="userComments">
                                             <fragment content="No Event">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="toolTip"/>
+                                                    <font key="NSFont" metaFont="controlContent" size="11"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                 </attributes>
                                             </fragment>
@@ -159,7 +156,7 @@
                                         <rect key="frame" x="-160" y="-108" width="320" height="216"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="344" id="Y1b-gA-E9F"/>
-                                            <constraint firstAttribute="height" constant="130" id="ixo-6S-qOg"/>
+                                            <constraint firstAttribute="height" constant="100" id="ixo-6S-qOg"/>
                                         </constraints>
                                         <date key="date" timeIntervalSinceReferenceDate="470513507.54004699">
                                             <!--2015-11-29 18:11:47 +0000-->
@@ -181,35 +178,14 @@
                                             <action selector="changeEndDate:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Mdu-O8-0Tc"/>
                                         </connections>
                                     </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unN-tz-Lm1">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="aTU-xy-7K3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Choose Event End Date"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="aTU-xy-7K3"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <mask key="constraints">
-                                                <include reference="aTU-xy-7K3"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="chooseEndDate:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Cdn-QF-azo"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Title" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eT0-f0-1Gy">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eT0-f0-1Gy">
                                         <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5wo-Uk-GHF"/>
-                                            <constraint firstAttribute="width" constant="344" id="cEQ-tk-i7p">
+                                            <constraint firstAttribute="width" constant="150" id="cEQ-tk-i7p">
                                                 <variation key="widthClass=compact" constant="344"/>
                                             </constraint>
+                                            <constraint firstAttribute="width" constant="150" id="hiR-h6-blw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -217,25 +193,70 @@
                                             <mask key="constraints">
                                                 <exclude reference="5wo-Uk-GHF"/>
                                                 <exclude reference="cEQ-tk-i7p"/>
+                                                <exclude reference="hiR-h6-blw"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="5wo-Uk-GHF"/>
-                                                <include reference="cEQ-tk-i7p"/>
+                                                <exclude reference="cEQ-tk-i7p"/>
+                                                <include reference="hiR-h6-blw"/>
                                             </mask>
                                         </variation>
                                     </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ken-ha-i4J" customClass="CVCalendarPanelView" customModule="SmartCalendar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" red="0.8737373737373737" green="0.8737373737373737" blue="0.8737373737373737" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="139" id="zb0-bi-FsV"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="zb0-bi-FsV"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="zb0-bi-FsV"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unN-tz-Lm1">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="Wgy-J4-47g"/>
+                                            <constraint firstAttribute="height" constant="30" id="aTU-xy-7K3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Pick End Date"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Wgy-J4-47g"/>
+                                                <exclude reference="aTU-xy-7K3"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <mask key="constraints">
+                                                <include reference="Wgy-J4-47g"/>
+                                                <include reference="aTU-xy-7K3"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="chooseEndDate:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Cdn-QF-azo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="unN-tz-Lm1" firstAttribute="top" secondItem="fzU-Ad-r5k" secondAttribute="top" constant="41" id="I9X-IX-gJ1"/>
+                                    <constraint firstItem="Ken-ha-i4J" firstAttribute="top" secondItem="fzU-Ad-r5k" secondAttribute="top" constant="38" id="BjH-0a-rOD"/>
+                                    <constraint firstItem="unN-tz-Lm1" firstAttribute="top" secondItem="fzU-Ad-r5k" secondAttribute="top" id="I9X-IX-gJ1"/>
                                     <constraint firstItem="eT0-f0-1Gy" firstAttribute="leading" secondItem="fzU-Ad-r5k" secondAttribute="leading" constant="8" id="OKC-AI-LmA"/>
-                                    <constraint firstAttribute="trailing" secondItem="eT0-f0-1Gy" secondAttribute="trailing" constant="8" id="QAY-pc-3JL"/>
                                     <constraint firstItem="eT0-f0-1Gy" firstAttribute="top" secondItem="fzU-Ad-r5k" secondAttribute="top" constant="3" id="Qg4-Zi-Wj3">
                                         <variation key="widthClass=compact" constant="0.0"/>
                                     </constraint>
-                                    <constraint firstItem="unN-tz-Lm1" firstAttribute="leading" secondItem="fzU-Ad-r5k" secondAttribute="leading" constant="8" id="TA6-Rn-CUa"/>
+                                    <constraint firstItem="Ken-ha-i4J" firstAttribute="leading" secondItem="fzU-Ad-r5k" secondAttribute="leading" constant="8" id="VhV-4v-OBx"/>
                                     <constraint firstItem="d2U-d5-mfp" firstAttribute="leading" secondItem="fzU-Ad-r5k" secondAttribute="leading" constant="8" id="W14-6W-TC4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ken-ha-i4J" secondAttribute="trailing" constant="8" id="X8p-bA-fHl"/>
                                     <constraint firstAttribute="trailing" secondItem="d2U-d5-mfp" secondAttribute="trailing" constant="8" id="ZKH-ae-sT9"/>
                                     <constraint firstAttribute="height" constant="300" id="fgp-je-VNq"/>
                                     <constraint firstAttribute="trailing" secondItem="unN-tz-Lm1" secondAttribute="trailing" constant="8" id="hyi-Ys-ZAJ"/>
@@ -244,39 +265,43 @@
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="d2U-d5-mfp"/>
-                                        <exclude reference="unN-tz-Lm1"/>
                                         <exclude reference="eT0-f0-1Gy"/>
+                                        <exclude reference="Ken-ha-i4J"/>
+                                        <exclude reference="unN-tz-Lm1"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="fgp-je-VNq"/>
                                         <exclude reference="OKC-AI-LmA"/>
-                                        <exclude reference="QAY-pc-3JL"/>
                                         <exclude reference="Qg4-Zi-Wj3"/>
-                                        <exclude reference="I9X-IX-gJ1"/>
-                                        <exclude reference="TA6-Rn-CUa"/>
-                                        <exclude reference="hyi-Ys-ZAJ"/>
+                                        <exclude reference="BjH-0a-rOD"/>
+                                        <exclude reference="VhV-4v-OBx"/>
+                                        <exclude reference="X8p-bA-fHl"/>
                                         <exclude reference="W14-6W-TC4"/>
                                         <exclude reference="ZKH-ae-sT9"/>
                                         <exclude reference="mTI-6q-Pk8"/>
+                                        <exclude reference="I9X-IX-gJ1"/>
+                                        <exclude reference="hyi-Ys-ZAJ"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="d2U-d5-mfp"/>
-                                        <include reference="unN-tz-Lm1"/>
                                         <include reference="eT0-f0-1Gy"/>
+                                        <include reference="Ken-ha-i4J"/>
+                                        <include reference="unN-tz-Lm1"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="fgp-je-VNq"/>
                                         <include reference="OKC-AI-LmA"/>
-                                        <include reference="QAY-pc-3JL"/>
                                         <include reference="Qg4-Zi-Wj3"/>
-                                        <include reference="I9X-IX-gJ1"/>
-                                        <include reference="TA6-Rn-CUa"/>
-                                        <include reference="hyi-Ys-ZAJ"/>
+                                        <include reference="BjH-0a-rOD"/>
+                                        <include reference="VhV-4v-OBx"/>
+                                        <include reference="X8p-bA-fHl"/>
                                         <include reference="W14-6W-TC4"/>
                                         <include reference="ZKH-ae-sT9"/>
                                         <include reference="mTI-6q-Pk8"/>
+                                        <include reference="I9X-IX-gJ1"/>
+                                        <include reference="hyi-Ys-ZAJ"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -395,10 +420,12 @@
                         <outlet property="eventView" destination="fzU-Ad-r5k" id="Mxr-Nr-1Dn"/>
                         <outlet property="menuView" destination="ZPD-eB-kRA" id="zjt-49-rDh"/>
                         <outlet property="monthLabel" destination="xf5-AN-qLk" id="fGT-h7-JSE"/>
+                        <outlet property="panelView" destination="Ken-ha-i4J" id="hv6-Z1-G0c"/>
                         <outlet property="todayButton" destination="izK-WF-YDE" id="QIf-zh-jji"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="27I-pi-Zdz"/>
             </objects>
             <point key="canvasLocation" x="18" y="293"/>
         </scene>

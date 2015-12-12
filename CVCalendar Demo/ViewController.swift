@@ -22,7 +22,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var eventTitle: UITextField!
 	@IBOutlet weak var endDate: UIDatePicker!
 	@IBOutlet weak var eventTabel: UITableView!
-    
+	@IBOutlet weak var panelView: CVCalendarPanelView!
+	
     var shouldShowDaysOut = false
     var animationFinished = true
     

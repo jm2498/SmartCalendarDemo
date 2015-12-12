@@ -1,5 +1,5 @@
 //
-//  CVCalendarControlPanelView.swift
+//  CVCalendarPanelView.swift
 //  SmartCalendar
 //
 //  Created by Jiangyu Mao on 12/10/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public final class CVCalendarControlPanelView: UIView {
+public final class CVCalendarPanelView: UIView {
 	
 	var currentCircle: CAShapeLayer!
 	
