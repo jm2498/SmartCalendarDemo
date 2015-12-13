@@ -452,9 +452,61 @@ extension ViewController {
 		
 		let modelVW: CGRect = self.panelView.frame
 		
-		if((location.x > 0 && (location.x < modelVW.size.width) && (location.y < modelVW.size.height) && (location.y > 0))) {
+		if((location.x-10 > 0 && (location.x+10 < modelVW.size.width) && (location.y+10 < modelVW.size.height) && (location.y-10 > 0))) {
 			
 			panelView.drawCircle(panelGesture.locationInView(panelGesture.view))
+			
+			let xrange = Float(201.5)
+			let yrange = Float(77.5)
+			
+			let xmax = Float(self.numOfDays)
+			let ymax = 10.0 * Float(self.numOfDays)
+			
+			let xrate = xrange / xmax
+			let yrate = ymax / yrange
+			
+			self.totalHoursToWork = Float(location.y-11) * yrate
+			self.average = self.totalHoursToWork / Float(numOfDays)
+			
+			for index in 0...(eventDays.count-1) {
+				if (floor(Float(location.x-10.5) / xrate) == floor(Float(self.numOfDays/2))) {
+					let workload = self.average
+					if (workload*4.75 + eventDays[index].workLoad > 47.5) {
+						break
+					}
+					eventDays[index].setupWorkLoadMarker(CGFloat(workload*4.75+eventDays[index].workLoad))
+					eventDays[index].workLoadMarkers[0]!.fillColor = UIColor.redColor()
+					workHours.append(workload * 4.75)
+				}
+				else {
+					let day = floor(Float(location.x-10.5) / xrate)
+					let up = (self.average * 2 * Float(self.numOfDays) - self.totalHoursToWork) * 2.0
+					let bot1 = day * (day + 1)
+					let bot2 = (Float(self.numOfDays) - day - 1.0) * (Float(self.numOfDays) - day)
+					let delta = up / (bot1 + bot2)
+					for index in 0...(eventDays.count-1) {
+						if (index <= Int(day)) {
+							let workload = self.average*2-Float(Int(day)-index) * delta
+							if (workload*4.75 + eventDays[index].workLoad > 47.5) {
+								break
+							}
+							eventDays[index].setupWorkLoadMarker(CGFloat(workload*4.75+eventDays[index].workLoad))
+							eventDays[index].workLoadMarkers[0]!.fillColor = UIColor.redColor()
+							workHours.append(workload * 4.75)
+						}
+						else {
+							let workload = self.average*2-Float(index-Int(day)) * delta
+							if (workload*4.75 + eventDays[index].workLoad > 47.5) {
+								break
+							}
+							print(workload)
+							eventDays[index].setupWorkLoadMarker(CGFloat(workload*4.75+eventDays[index].workLoad))
+							eventDays[index].workLoadMarkers[0]!.fillColor = UIColor.redColor()
+							workHours.append(workload * 4.75)
+						}
+					}
+				}
+			}
 
 			print("lcoaiton x : ", location.x)
 			print("location y : ", location.y)
